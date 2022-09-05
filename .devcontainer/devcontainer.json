@@ -1,6 +1,6 @@
 {
-  "name": "nest/-graphql-prisma",
-  "dockerComposeFile": "docker-compone.yml",
+  "name": "nest-graphql-prisma",
+  "dockerComposeFile": "docker-compose.yml",
   "service": "node",
   "workspaceFolder": "/src",
   "settings": {},
