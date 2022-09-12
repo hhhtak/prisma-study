@@ -26,3 +26,19 @@ generator nestgraphql {
    decorate_2_arguments   = "['() => {propertyType.0}']"
    decorate_2_name        = Type
 }
+
+model User {
+  /// @Field(() => ID)
+  id int @id @default(autoincrement())
+  /// @Validator.IsEmail()
+  email String @unique
+  /// @Validator.IsNotEmpty()
+  name String
+  /// @HideField()
+  /// @Validator.MinLength(8)
+  password String
+  /// @HideField({input: true, output: true})
+  createdAt DateTime @default(now())
+  /// @HideField({input: true, output: true})
+  updatedAt DateTime @updatedAt
+}
