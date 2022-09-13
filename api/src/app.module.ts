@@ -3,6 +3,7 @@ import { AppController } from './app.controller'
 import { AppService } from './app.service'
 import { GraphQLModule } from '@nestjs/graphql'
 import { join } from 'path'
+import { PrismaService } from './prisma.service'
 
 @Module({
   imports: [
@@ -11,6 +12,6 @@ import { join } from 'path'
     }),
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService, PrismaService],
 })
 export class AppModule {}
