@@ -8,6 +8,11 @@ type User {
   name: String!
 }
 
+type LoginResponse {
+  access_token: String!
+  user: User!
+}
+
 type Query {
   user(where: UserWhereInput, orderBy: [UserOrderByWithRelationInput!], cursor: UserWhereUniqueInput, take: Int, skip: Int, distinct: [UserScalarFieldEnum!]): User!
 }
@@ -100,10 +105,16 @@ enum UserScalarFieldEnum {
 
 type Mutation {
   createUser(data: UserCreateInput!): User!
+  login(loginUserInput: LoginUserInput!): LoginResponse!
 }
 
 input UserCreateInput {
   email: String!
   name: String!
+  password: String!
+}
+
+input LoginUserInput {
+  email: String!
   password: String!
 }
